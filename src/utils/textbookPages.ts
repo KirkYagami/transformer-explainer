@@ -1,3 +1,4 @@
+import { base } from '$app/paths';
 import { get } from 'svelte/store';
 import {
 	expandedBlock,
@@ -37,6 +38,7 @@ export const textPages: TextbookPage[] = [
 		id: 'what-is-transformer',
 		title: 'What is Transformer?',
 		content: `<p><strong>Transformer</strong> is the core architecture behind modern AI, powering models like ChatGPT and Gemini. Introduced in 2017, it revolutionized how AI processes information. The same architecture is used for training on massive datasets and for inference to generate outputs. Here we use GPT-2 (small), simpler than newer ones but perfect for learning the fundamentals.</p>
+<p>Brand new to all of this? The <a href="${base}/guide" style="color:#7c3aed;text-decoration:underline">Beginner's Guide</a> explains every piece from zero.</p>
 `,
 		on: () => {},
 		out: () => {}

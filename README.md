@@ -6,6 +6,19 @@ Transformer Explainer is an interactive visualization tool designed to help anyo
 
 <a href="https://youtu.be/TFUc41G2ikY" target="_blank"><img width="100%" src='https://github.com/user-attachments/assets/0a4d8888-6555-4df5-bc71-77f1299115c3'></a>
 
+## About this fork: a from-zero Beginner's Guide
+
+This fork adds a **Beginner's Guide** (`/guide`, linked from the top bar) that assumes *no* background in AI,
+programming or math. It walks through every part of the visualization in order — tokens, embeddings,
+positions, attention (Q/K/V), MLP, residuals & LayerNorm, the 12-block stack, softmax/temperature/sampling,
+the generation loop, and training — and for each part answers the questions beginners actually ask
+("Why not just use whole words?", "Who chose those 768 numbers?", "Why can't words look ahead?", …).
+
+It includes small interactive demos (live GPT-2 tokenizer, a 2-D word-meaning map, dot product, attention
+on a real sentence, a hand-worked Q/K/V example, a single neuron, LayerNorm, temperature & top-k sampling,
+a generation loop, and gradient descent), quick quizzes, a myths section, a tensor-shape cheat sheet and a
+searchable glossary. Source: `src/routes/guide/` and `src/components/guide/`.
+
 ## Live Demo
 
 Try Transformer Explainer: http://poloclub.github.io/transformer-explainer
