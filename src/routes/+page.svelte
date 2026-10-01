@@ -19,6 +19,10 @@
 		isOnBlockTransition,
 		blockIdx,
 		isTextbookOpen,
+		textbookCurrentPage,
+		textbookPreviousPage,
+		textbookCurrentPageId,
+		textbookPreviousPageId,
 		userId
 	} from '~/store';
 	import { PreTrainedTokenizer } from '@xenova/transformers';
@@ -30,6 +34,8 @@
 	import Mlp from '~/components/Mlp.svelte';
 
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
+	import { textPages } from '~/utils/textbookPages';
 	import classNames from 'classnames';
 	import { base } from '$app/paths';
 	import * as ort from 'onnxruntime-web';
@@ -52,6 +58,7 @@
 
 	// fetch model
 	onMount(async () => {
+		openTextbookFromUrl();
 		const gpt2Tokenizer = await AutoTokenizer.from_pretrained('Xenova/gpt2');
 		active = true;
 
@@ -63,6 +70,21 @@
 
 		return unsubscribe;
 	});
+
+	// Deep link from the Beginner's Guide: /?tour=<textbook page id> opens the textbook on that page
+	const openTextbookFromUrl = () => {
+		const pageId = new URLSearchParams(window.location.search).get('tour');
+		const index = textPages.findIndex((p) => p.id === pageId);
+		if (index < 0) return;
+		// let the visualization mount before the page's highlight/expand handlers run
+		setTimeout(() => {
+			textbookPreviousPageId.set(get(textbookCurrentPageId));
+			textbookPreviousPage.set(get(textbookCurrentPage));
+			textbookCurrentPageId.set(textPages[index].id);
+			textbookCurrentPage.set(index);
+			isTextbookOpen.set(true);
+		}, 300);
+	};
 
 	// Fetch model onnx
 	const fetchModel = async () => {

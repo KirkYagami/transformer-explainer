@@ -355,6 +355,7 @@
 				<p class="see-it">
 					👀 <strong>In the visualization:</strong> the words in the very first column on the left
 					are the tokens. Hover over the <em>Embedding</em> block to see their IDs.
+					<a class="show-me" href="{base}/?tour=embedding">Show me in the visualization →</a>
 				</p>
 			</section>
 
@@ -418,6 +419,12 @@
 						parameters! It's just a lookup table, though, so using it is very fast.
 					</p>
 				</Question>
+
+				<p class="see-it">
+					👀 <strong>In the visualization:</strong> click the <em>Embedding</em> block and look at
+					the middle column: each token ID becomes a row of the 768-number table.
+					<a class="show-me" href="{base}/?tour=token-embedding">Show me in the visualization →</a>
+				</p>
 			</section>
 
 			<!-- ============================== 5. POSITION ============================== -->
@@ -463,6 +470,9 @@
 					👀 <strong>In the visualization:</strong> click the <em>Embedding</em> block to expand it.
 					You'll see token embedding + positional encoding = final embedding, for each token in your
 					prompt.
+					<a class="show-me" href="{base}/?tour=positional-encoding"
+						>Show me in the visualization →</a
+					>
 				</p>
 				<Quiz
 					question="Why does the model need positional embeddings?"
@@ -620,9 +630,10 @@
 					</p>
 				</Question>
 				<p class="see-it">
-					👀 <strong>In the visualization:</strong> the <em>Attention</em> part of each Transformer block.
-					Click it to see the Q, K, V vectors, the masked attention matrix (darker = more attention)
-					and the head selector. Hover over tokens to see what each one attends to.
+					👀 <strong>In the visualization:</strong> the <em>Attention</em> part of each Transformer
+					block. Click it to see the Q, K, V vectors, the masked attention matrix (darker = more
+					attention) and the head selector. Hover over tokens to see what each one attends to.
+					<a class="show-me" href="{base}/?tour=self-attention">Show me in the visualization →</a>
 				</p>
 				<Quiz
 					question="In attention, what is the Query–Key dot product used for?"
@@ -687,6 +698,7 @@
 				<p class="see-it">
 					👀 <strong>In the visualization:</strong> the <em>MLP</em> part of each block. Click it to
 					see 768 → 3,072 → 768.
+					<a class="show-me" href="{base}/?tour=mlp">Show me in the visualization →</a>
 				</p>
 			</section>
 
@@ -742,9 +754,10 @@
 					</p>
 				</Question>
 				<p class="see-it">
-					👀 <strong>In the visualization:</strong> the curved lines skipping around attention and the
-					MLP are the residual connections. Click "LayerNorm", "Dropout" or "Residual" labels for their
-					details.
+					👀 <strong>In the visualization:</strong> the curved lines skipping around attention and
+					the MLP are the residual connections. Click "LayerNorm", "Dropout" or "Residual" labels
+					for their details.
+					<a class="show-me" href="{base}/?tour=residual">Show me in the visualization →</a>
 				</p>
 			</section>
 
@@ -786,8 +799,9 @@
 					</p>
 				</Question>
 				<p class="see-it">
-					👀 <strong>In the visualization:</strong> the stack of greyed-out blocks behind the first one.
-					Use the arrows to step through blocks 1 to 12.
+					👀 <strong>In the visualization:</strong> the stack of greyed-out blocks behind the first
+					one. Use the arrows to step through blocks 1 to 12.
+					<a class="show-me" href="{base}/?tour=blocks">Show me in the visualization →</a>
 				</p>
 			</section>
 
@@ -850,8 +864,11 @@
 					</p>
 				</Question>
 				<p class="see-it">
-					👀 <strong>In the visualization:</strong> the rightmost column, "Probabilities". Use the Temperature
-					slider and Sampling options at the top and watch the bars change.
+					👀 <strong>In the visualization:</strong> the rightmost column, "Probabilities". Use the
+					Temperature slider and Sampling options at the top and watch the bars change.
+					<a class="show-me" href="{base}/?tour=output-probabilities"
+						>Show me in the visualization →</a
+					>
 				</p>
 			</section>
 
@@ -887,6 +904,12 @@
 						<code>&lt;|endoftext|&gt;</code> token, which it learned appears at the end of documents.
 					</p>
 				</Question>
+
+				<p class="see-it">
+					👀 <strong>In the visualization:</strong> type a prompt and press <em>Generate</em>: each
+					new word is one full trip through the model, exactly like the loop above.
+					<a class="show-me" href="{base}/?tour=sampling">Show me in the visualization →</a>
+				</p>
 			</section>
 
 			<!-- ============================== 12. TRAINING ============================== -->
@@ -1355,6 +1378,12 @@
 		border-radius: 0.5rem;
 		font-weight: 600;
 		color: var(--g-accent-strong);
+	}
+	.show-me {
+		display: inline-block;
+		margin-left: 0.3rem;
+		font-weight: 700;
+		white-space: nowrap;
 	}
 	.see-it {
 		background: var(--g-cyan-wash);
