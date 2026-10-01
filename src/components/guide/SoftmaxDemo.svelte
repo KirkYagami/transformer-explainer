@@ -41,7 +41,9 @@
 	<p class="hint">Prompt: <em>"Data visualization empowers users to …"</em></p>
 	<table>
 		<thead>
-			<tr><th>Next token</th><th>Raw score (logit)</th><th>÷ temperature</th><th>Probability</th></tr>
+			<tr
+				><th>Next token</th><th>Raw score (logit)</th><th>÷ temperature</th><th>Probability</th></tr
+			>
 		</thead>
 		<tbody>
 			{#each candidates as c, i}
@@ -74,9 +76,9 @@
 		</p>
 	{/if}
 	<p class="hint">
-		Notice: low temperature (≈0.1) makes the top choice win almost every time — predictable, a bit boring.
-		High temperature (≈3) flattens everything, so even <em>"banana"</em> gets a real chance — creative, but
-		risky. Top-k = 1 means "always pick the best one" (called <em>greedy</em> decoding).
+		Notice: low temperature (≈0.1) makes the top choice win almost every time — predictable, a bit
+		boring. High temperature (≈3) flattens everything, so even <em>"banana"</em> gets a real chance
+		— creative, but risky. Top-k = 1 means "always pick the best one" (called <em>greedy</em> decoding).
 	</p>
 </div>
 
@@ -90,10 +92,10 @@
 	td {
 		text-align: left;
 		padding: 0.3rem 0.5rem;
-		border-bottom: 1px solid #f3f4f6;
+		border-bottom: 1px solid var(--g-muted);
 	}
 	th {
-		color: #6b7280;
+		color: var(--g-text-3);
 		font-weight: 600;
 	}
 	.bar-cell {

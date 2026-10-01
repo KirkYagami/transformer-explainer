@@ -16,23 +16,36 @@
 		<div>
 			<div class="h">Before (wild numbers)</div>
 			{#each values as v}
-				<div class="bar-row"><span class="bar" style="width:{(Math.abs(v) / maxAbs) * 100}%; background:{v < 0 ? '#fca5a5' : '#c4b5fd'}"></span><span>{v.toFixed(1)}</span></div>
+				<div class="bar-row">
+					<span
+						class="bar"
+						style="width:{(Math.abs(v) / maxAbs) * 100}%; background:{v < 0
+							? '#fca5a5'
+							: '#c4b5fd'}"
+					></span><span>{v.toFixed(1)}</span>
+				</div>
 			{/each}
 			<div class="stat">average {mean.toFixed(1)}, spread {std.toFixed(1)}</div>
 		</div>
 		<div>
 			<div class="h">After (calm numbers)</div>
 			{#each normed as v}
-				<div class="bar-row"><span class="bar" style="width:{(Math.abs(v) / 2.5) * 100}%; background:{v < 0 ? '#fca5a5' : '#c4b5fd'}"></span><span>{v.toFixed(2)}</span></div>
+				<div class="bar-row">
+					<span
+						class="bar"
+						style="width:{(Math.abs(v) / 2.5) * 100}%; background:{v < 0 ? '#fca5a5' : '#c4b5fd'}"
+					></span><span>{v.toFixed(2)}</span>
+				</div>
 			{/each}
 			<div class="stat">average 0.0, spread 1.0</div>
 		</div>
 	</div>
 	<button class="btn" on:click={shuffle}>Shuffle in new random numbers</button>
 	<p class="hint">
-		No matter how big or small the inputs, the outputs always land in the same comfortable range — but their
-		<em>pattern</em> (which ones are bigger than others) is kept. (The real LayerNorm then also multiplies and
-		shifts by two learned vectors, γ and β, so the model can re-stretch things if it wants.)
+		No matter how big or small the inputs, the outputs always land in the same comfortable range —
+		but their
+		<em>pattern</em> (which ones are bigger than others) is kept. (The real LayerNorm then also multiplies
+		and shifts by two learned vectors, γ and β, so the model can re-stretch things if it wants.)
 	</p>
 </div>
 
@@ -63,7 +76,7 @@
 	}
 	.stat {
 		font-size: 0.8rem;
-		color: #6b7280;
+		color: var(--g-text-3);
 		margin-top: 0.3rem;
 	}
 </style>

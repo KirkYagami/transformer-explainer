@@ -45,17 +45,20 @@
 		<li>
 			<strong>Score against each Key</strong> (dot product, then ÷ √2 ≈ 1.41 to keep numbers tame):
 			<table>
-				<thead><tr><th>token</th><th>Key</th><th>score</th><th>after softmax</th><th>Value</th></tr></thead>
+				<thead
+					><tr><th>token</th><th>Key</th><th>score</th><th>after softmax</th><th>Value</th></tr
+					></thead
+				>
 				<tbody>
-				{#each tokens as t, j}
-					<tr class:masked={j > i}>
-						<td>{t}</td>
-						<td><code>{vec(K[j])}</code></td>
-						<td>{j > i ? 'masked (future)' : f(raw[j])}</td>
-						<td><strong>{(w[j] * 100).toFixed(0)}%</strong></td>
-						<td><code>{vec(V[j])}</code></td>
-					</tr>
-				{/each}
+					{#each tokens as t, j}
+						<tr class:masked={j > i}>
+							<td>{t}</td>
+							<td><code>{vec(K[j])}</code></td>
+							<td>{j > i ? 'masked (future)' : f(raw[j])}</td>
+							<td><strong>{(w[j] * 100).toFixed(0)}%</strong></td>
+							<td><code>{vec(V[j])}</code></td>
+						</tr>
+					{/each}
 				</tbody>
 			</table>
 		</li>
@@ -66,7 +69,8 @@
 			</code>
 		</li>
 		<li>
-			That blended vector <code>{vec(out)}</code> is the new, <em>context-aware</em> representation of "{tokens[i]}".
+			That blended vector <code>{vec(out)}</code> is the new, <em>context-aware</em> representation
+			of "{tokens[i]}".
 		</li>
 	</ol>
 </div>
@@ -93,7 +97,7 @@
 	th,
 	td {
 		padding: 0.2rem 0.6rem;
-		border-bottom: 1px solid #f3f4f6;
+		border-bottom: 1px solid var(--g-muted);
 		text-align: left;
 	}
 	.masked {

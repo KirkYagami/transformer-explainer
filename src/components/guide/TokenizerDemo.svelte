@@ -6,7 +6,14 @@
 	let failed = false;
 	let pieces: { text: string; id: number }[] = [];
 
-	const palette = ['#ede9fe', '#dbeafe', '#dcfce7', '#fef3c7', '#fce7f3', '#e0f2fe'];
+	const palette = [
+		'var(--g-violet-tint)',
+		'var(--g-blue-tint)',
+		'var(--g-green-tint)',
+		'var(--g-amber-tint)',
+		'var(--g-pink-tint)',
+		'var(--g-sky-tint)'
+	];
 
 	onMount(async () => {
 		try {
@@ -29,7 +36,10 @@
 	<div class="demo-title">Try it: the real GPT-2 tokenizer</div>
 	<textarea bind:value={text} rows="2" placeholder="Type anything…" />
 	{#if failed}
-		<p class="note">Couldn't download the tokenizer (are you offline?). The idea: text gets chopped into common chunks.</p>
+		<p class="note">
+			Couldn't download the tokenizer (are you offline?). The idea: text gets chopped into common
+			chunks.
+		</p>
 	{:else if !tokenizer}
 		<p class="note">Loading GPT-2's vocabulary…</p>
 	{:else}
@@ -47,15 +57,15 @@
 		</p>
 	{/if}
 	<p class="hint">
-		Things to try: a rare word like <em>"antidisestablishmentarianism"</em>, your name, an emoji 🎉, a
-		number like <em>"1234567"</em>, or the same word with and without a capital letter.
+		Things to try: a rare word like <em>"antidisestablishmentarianism"</em>, your name, an emoji 🎉,
+		a number like <em>"1234567"</em>, or the same word with and without a capital letter.
 	</p>
 </div>
 
 <style>
 	textarea {
 		width: 100%;
-		border: 1px solid #d1d5db;
+		border: 1px solid var(--g-border-strong);
 		border-radius: 0.5rem;
 		padding: 0.6rem;
 		font-size: 1rem;
@@ -80,13 +90,13 @@
 	}
 	.id {
 		font-size: 0.65rem;
-		color: #6b7280;
+		color: var(--g-text-3);
 	}
 	.stats,
 	.note,
 	.hint {
 		font-size: 0.9rem;
-		color: #4b5563;
+		color: var(--g-text-2);
 		margin-top: 0.6rem;
 	}
 </style>

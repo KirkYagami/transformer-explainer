@@ -2,20 +2,65 @@
 	// Clickable overview of the whole pipeline; each box jumps to its chapter.
 	export let highlight = '';
 	const stages = [
-		{ id: 'tokens', label: 'Text → Tokens', sub: 'chop text into pieces', color: '#e0e7ff' },
-		{ id: 'embedding', label: 'Tokens → Vectors', sub: 'look up 768 numbers each', color: '#ede9fe' },
-		{ id: 'position', label: '+ Position', sub: 'remember word order', color: '#ede9fe' },
-		{ id: 'attention', label: 'Attention', sub: 'words share information', color: '#dbeafe', block: true },
-		{ id: 'mlp', label: 'MLP', sub: 'each word "thinks" alone', color: '#dbeafe', block: true },
-		{ id: 'output', label: 'Vectors → Probabilities', sub: 'score all 50,257 tokens', color: '#dcfce7' },
-		{ id: 'generation', label: 'Pick & repeat', sub: 'one token at a time', color: '#fef3c7' }
+		{
+			id: 'tokens',
+			label: 'Text → Tokens',
+			sub: 'chop text into pieces',
+			color: 'var(--g-indigo-tint)'
+		},
+		{
+			id: 'embedding',
+			label: 'Tokens → Vectors',
+			sub: 'look up 768 numbers each',
+			color: 'var(--g-violet-tint)'
+		},
+		{
+			id: 'position',
+			label: '+ Position',
+			sub: 'remember word order',
+			color: 'var(--g-violet-tint)'
+		},
+		{
+			id: 'attention',
+			label: 'Attention',
+			sub: 'words share information',
+			color: 'var(--g-blue-tint)',
+			block: true
+		},
+		{
+			id: 'mlp',
+			label: 'MLP',
+			sub: 'each word "thinks" alone',
+			color: 'var(--g-blue-tint)',
+			block: true
+		},
+		{
+			id: 'output',
+			label: 'Vectors → Probabilities',
+			sub: 'score all 50,257 tokens',
+			color: 'var(--g-green-tint)'
+		},
+		{
+			id: 'generation',
+			label: 'Pick & repeat',
+			sub: 'one token at a time',
+			color: 'var(--g-amber-tint)'
+		}
 	];
 </script>
 
 <div class="pipeline">
 	{#each stages as s, i}
-		{#if s.id === 'attention'}<div class="block-label">Transformer block × 12 (same recipe, different learned numbers)</div>{/if}
-		<a href="#{s.id}" class="stage" class:in-block={s.block} class:hl={highlight === s.id} style="background:{s.color}">
+		{#if s.id === 'attention'}<div class="block-label">
+				Transformer block × 12 (same recipe, different learned numbers)
+			</div>{/if}
+		<a
+			href="#{s.id}"
+			class="stage"
+			class:in-block={s.block}
+			class:hl={highlight === s.id}
+			style="background:{s.color}"
+		>
 			<span class="n">{i + 1}</span>
 			<span class="l">{s.label}</span>
 			<span class="s">{s.sub}</span>
@@ -39,7 +84,7 @@
 		padding: 0.5rem 0.8rem;
 		border-radius: 0.6rem;
 		text-decoration: none;
-		color: #1f2937;
+		color: var(--g-text);
 		border: 2px solid transparent;
 	}
 	.stage:hover,
@@ -52,7 +97,7 @@
 	.n {
 		grid-row: span 2;
 		font-weight: 700;
-		color: #6d28d9;
+		color: var(--g-accent);
 		align-self: center;
 	}
 	.l {
@@ -60,15 +105,15 @@
 	}
 	.s {
 		font-size: 0.8rem;
-		color: #4b5563;
+		color: var(--g-text-2);
 	}
 	.arrow {
-		color: #9ca3af;
+		color: var(--g-text-4);
 		line-height: 1.2;
 	}
 	.block-label {
 		font-size: 0.75rem;
-		color: #2563eb;
+		color: var(--g-blue-text);
 		font-weight: 600;
 		margin-bottom: 0.2rem;
 	}

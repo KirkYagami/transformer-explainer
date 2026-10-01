@@ -32,15 +32,15 @@
 
 <style>
 	.quiz {
-		background: #f9fafb;
-		border: 1px dashed #d1d5db;
+		background: var(--g-surface);
+		border: 1px dashed var(--g-border-strong);
 		border-radius: 0.75rem;
 		padding: 1rem 1.2rem;
 		margin: 1.5rem 0;
 	}
 	.title {
 		font-weight: 700;
-		color: #059669;
+		color: var(--g-green-text);
 		font-size: 0.9rem;
 	}
 	.question {
@@ -55,26 +55,26 @@
 	.option {
 		text-align: left;
 		padding: 0.5rem 0.8rem;
-		border: 1px solid #e5e7eb;
-		background: #fff;
+		border: 1px solid var(--g-border);
+		background: var(--g-bg);
 		border-radius: 0.5rem;
 	}
 	.option:hover {
 		border-color: #a78bfa;
 	}
 	.correct {
-		background: #ecfdf5;
+		background: var(--g-green-wash);
 		border-color: #10b981;
 	}
 	.wrong {
-		background: #fef2f2;
+		background: var(--g-red-wash);
 		border-color: #ef4444;
 	}
 	.feedback {
 		margin-top: 0.8rem;
-		color: #b91c1c;
+		color: var(--g-red-text);
 	}
 	.feedback.ok {
-		color: #047857;
+		color: var(--g-green-text);
 	}
 </style>

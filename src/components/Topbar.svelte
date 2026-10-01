@@ -29,9 +29,9 @@
 			href="{base}/guide"
 			class="guide-link whitespace-nowrap rounded-full bg-purple-600 px-3 py-1 text-sm font-semibold text-white hover:bg-purple-700"
 			data-click="guide-btn"
-			title="New to all this? Start here."
+			title="New to all this? Read the Beginner's Guide"
 		>
-			Beginner's Guide
+			📘 Guide
 		</a>
 		<!-- arxiv -->
 		<a

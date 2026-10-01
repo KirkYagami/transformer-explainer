@@ -2,7 +2,19 @@
 	// Hand-crafted attention weights for a classic example sentence.
 	// GPT-2 is causal: each word can only look at itself and the words BEFORE it.
 	let ending: 'tired' | 'wide' = 'tired';
-	$: tokens = ['The', 'animal', "didn't", 'cross', 'the', 'street', 'because', 'it', 'was', 'too', ending];
+	$: tokens = [
+		'The',
+		'animal',
+		"didn't",
+		'cross',
+		'the',
+		'street',
+		'because',
+		'it',
+		'was',
+		'too',
+		ending
+	];
 	let selected = 7;
 
 	// raw relevance scores (what Query·Key would produce), hand-picked for the story
@@ -35,7 +47,10 @@
 
 <div class="demo">
 	<div class="demo-title">Try it: which earlier words does each word "look at"?</div>
-	<p class="hint">Click a word. Darker = more attention. Greyed-out words are in the future — the model isn't allowed to look at them.</p>
+	<p class="hint">
+		Click a word. Darker = more attention. Greyed-out words are in the future — the model isn't
+		allowed to look at them.
+	</p>
 	<div class="sentence">
 		{#each tokens as t, j}
 			<button
@@ -52,14 +67,25 @@
 	</div>
 	<div class="controls">
 		Change the last word:
-		<button class="btn small" class:on={ending === 'tired'} on:click={() => ((ending = 'tired'), (selected = 10))}>tired</button>
-		<button class="btn small" class:on={ending === 'wide'} on:click={() => ((ending = 'wide'), (selected = 10))}>wide</button>
+		<button
+			class="btn small"
+			class:on={ending === 'tired'}
+			on:click={() => ((ending = 'tired'), (selected = 10))}>tired</button
+		>
+		<button
+			class="btn small"
+			class:on={ending === 'wide'}
+			on:click={() => ((ending = 'wide'), (selected = 10))}>wide</button
+		>
 	</div>
 	<p class="hint">
-		With <em>"tired"</em>, the last word pays most attention to <strong>animal</strong> (animals get tired).
-		With <em>"wide"</em>, it focuses on <strong>street</strong> (streets are wide). The percentages always add
-		up to 100% — attention is a way of <em>splitting a fixed budget of focus</em>.
-		<br /><small>(These numbers are illustrative, hand-picked to show the idea; real GPT-2 heads are messier.)</small>
+		With <em>"tired"</em>, the last word pays most attention to <strong>animal</strong> (animals get
+		tired). With <em>"wide"</em>, it focuses on <strong>street</strong> (streets are wide). The
+		percentages always add up to 100% — attention is a way of
+		<em>splitting a fixed budget of focus</em>.
+		<br /><small
+			>(These numbers are illustrative, hand-picked to show the idea; real GPT-2 heads are messier.)</small
+		>
 	</p>
 </div>
 
@@ -75,7 +101,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 0.3rem 0.55rem;
-		border: 1px solid #e5e7eb;
+		border: 1px solid var(--g-border);
 		border-radius: 0.4rem;
 		font-size: 1rem;
 		transition: background 0.2s;
@@ -84,12 +110,12 @@
 		outline: 2px solid #f59e0b;
 	}
 	.w.future {
-		color: #d1d5db;
+		color: var(--g-border-strong);
 		border-style: dashed;
 	}
 	.pct {
 		font-size: 0.65rem;
-		color: #374151;
+		color: var(--g-text);
 	}
 	.controls {
 		display: flex;

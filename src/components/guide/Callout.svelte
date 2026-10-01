@@ -34,31 +34,31 @@
 		margin: 0.4rem 0;
 	}
 	.analogy {
-		background: #fffbeb;
+		background: var(--g-amber-wash);
 		border-color: #f59e0b;
 	}
 	.analogy .label {
-		color: #b45309;
+		color: var(--g-amber-text);
 	}
 	.key {
-		background: #f5f3ff;
+		background: var(--g-violet-wash);
 		border-color: #8b5cf6;
 	}
 	.key .label {
-		color: #6d28d9;
+		color: var(--g-accent);
 	}
 	.warning {
-		background: #fef2f2;
+		background: var(--g-red-wash);
 		border-color: #ef4444;
 	}
 	.warning .label {
-		color: #b91c1c;
+		color: var(--g-red-text);
 	}
 	.math {
-		background: #f0f9ff;
+		background: var(--g-sky-wash);
 		border-color: #0ea5e9;
 	}
 	.math .label {
-		color: #0369a1;
+		color: var(--g-sky-text);
 	}
 </style>

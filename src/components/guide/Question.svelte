@@ -11,15 +11,15 @@
 
 <style>
 	.question {
-		border: 1px solid #e5e7eb;
+		border: 1px solid var(--g-border);
 		border-radius: 0.75rem;
 		margin: 0.6rem 0;
-		background: #fff;
+		background: var(--g-bg);
 		transition: box-shadow 0.15s;
 	}
 	.question[open] {
 		box-shadow: 0 2px 10px rgba(124, 58, 237, 0.08);
-		border-color: #ddd6fe;
+		border-color: var(--g-violet-line);
 	}
 	summary {
 		cursor: pointer;
@@ -29,7 +29,7 @@
 		align-items: center;
 		padding: 0.75rem 1rem;
 		font-weight: 600;
-		color: #374151;
+		color: var(--g-text);
 	}
 	summary::-webkit-details-marker {
 		display: none;
@@ -48,15 +48,15 @@
 		width: 1.6rem;
 		height: 1.6rem;
 		border-radius: 999px;
-		background: #ede9fe;
-		color: #6d28d9;
+		background: var(--g-violet-tint);
+		color: var(--g-accent);
 		display: grid;
 		place-items: center;
 		font-size: 0.9rem;
 	}
 	.answer {
 		padding: 0 1rem 1rem 3.35rem;
-		color: #4b5563;
+		color: var(--g-text-2);
 		line-height: 1.7;
 	}
 	.answer :global(p) {

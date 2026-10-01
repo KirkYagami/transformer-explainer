@@ -48,25 +48,56 @@
 
 <div class="demo">
 	<div class="demo-title">Try it: a toy map of word meanings</div>
-	<p class="hint">Click any word. Its closest neighbours are the words the "model" thinks are most similar.</p>
+	<p class="hint">
+		Click any word. Its closest neighbours are the words the "model" thinks are most similar.
+	</p>
 	<svg viewBox="0 0 {W} {H}" class="map">
 		<defs>
 			<marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
 				<path d="M0,0 L8,4 L0,8 z" fill="#ef4444" />
 			</marker>
 		</defs>
-		<rect x="0" y="0" width={W} height={H} fill="#fafafa" rx="8" />
+		<rect x="0" y="0" width={W} height={H} style="fill:var(--g-surface)" rx="8" />
 		{#if selected}
 			{#each neighbors as n}
-				<line x1={sx(selected.x)} y1={sy(selected.y)} x2={sx(n.x)} y2={sy(n.y)} stroke="#c4b5fd" stroke-dasharray="4 3" />
+				<line
+					x1={sx(selected.x)}
+					y1={sy(selected.y)}
+					x2={sx(n.x)}
+					y2={sy(n.y)}
+					stroke="#c4b5fd"
+					stroke-dasharray="4 3"
+				/>
 			{/each}
 		{/if}
 		{#if showArith}
-			<line x1={sx(man.x)} y1={sy(man.y)} x2={sx(woman.x)} y2={sy(woman.y)} stroke="#ef4444" stroke-width="2" marker-end="url(#arr)" />
-			<line x1={sx(king.x)} y1={sy(king.y)} x2={sx(res.x) + 8} y2={sy(res.y)} stroke="#ef4444" stroke-width="2" marker-end="url(#arr)" />
+			<line
+				x1={sx(man.x)}
+				y1={sy(man.y)}
+				x2={sx(woman.x)}
+				y2={sy(woman.y)}
+				stroke="#ef4444"
+				stroke-width="2"
+				marker-end="url(#arr)"
+			/>
+			<line
+				x1={sx(king.x)}
+				y1={sy(king.y)}
+				x2={sx(res.x) + 8}
+				y2={sy(res.y)}
+				stroke="#ef4444"
+				stroke-width="2"
+				marker-end="url(#arr)"
+			/>
 		{/if}
 		{#each words as d}
-			<g class="word" on:click={() => (selected = d)} role="button" tabindex="0" on:keydown={() => (selected = d)}>
+			<g
+				class="word"
+				on:click={() => (selected = d)}
+				role="button"
+				tabindex="0"
+				on:keydown={() => (selected = d)}
+			>
 				<circle cx={sx(d.x)} cy={sy(d.y)} r={selected === d ? 7 : 5} fill={colors[d.group]} />
 				<text x={sx(d.x) + 9} y={sy(d.y) + 4} font-weight={selected === d ? 700 : 400}>{d.w}</text>
 			</g>
@@ -74,8 +105,8 @@
 	</svg>
 	{#if selected}
 		<p class="hint">
-			Closest to <strong>{selected.w}</strong>: {neighbors.map((n) => n.w).join(', ')}. Its "embedding" here
-			is just <code>[{selected.x}, {selected.y}]</code>.
+			Closest to <strong>{selected.w}</strong>: {neighbors.map((n) => n.w).join(', ')}. Its
+			"embedding" here is just <code>[{selected.x}, {selected.y}]</code>.
 		</p>
 	{/if}
 	<button class="btn" on:click={() => (showArith = !showArith)}>
@@ -83,9 +114,9 @@
 	</button>
 	{#if showArith}
 		<p class="hint">
-			The arrow from <em>man</em> to <em>woman</em> is the "make it female" direction. Start at <em>king</em>,
-			move in that same direction, and you land on… <strong>queen</strong>. Directions in this space can carry
-			meaning!
+			The arrow from <em>man</em> to <em>woman</em> is the "make it female" direction. Start at
+			<em>king</em>, move in that same direction, and you land on… <strong>queen</strong>.
+			Directions in this space can carry meaning!
 		</p>
 	{/if}
 </div>
@@ -103,6 +134,6 @@
 	}
 	text {
 		font-size: 13px;
-		fill: #374151;
+		fill: var(--g-text);
 	}
 </style>
