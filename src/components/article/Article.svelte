@@ -2,11 +2,18 @@
 	import tailwindConfig from '../../../tailwind.config';
 	import resolveConfig from 'tailwindcss/resolveConfig';
 	import Katex from '~/utils/Katex.svelte';
+	import { base } from '$app/paths';
 </script>
 
 <div id="description">
 	<div class="article-section" data-click="article-intro">
 		<h1>What is a Transformer?</h1>
+
+		<p class="beginner-banner">
+			<strong>Completely new to AI?</strong> Read our
+			<a href="{base}/guide">Beginner's Guide: Transformers from Zero</a> — no math or programming
+			background needed, with interactive demos and answers to the questions everyone asks.
+		</p>
 
 		<p>
 			Transformer is a neural network architecture that has fundamentally changed the approach to
@@ -584,6 +591,16 @@
 </div>
 
 <style lang="scss">
+	.beginner-banner {
+		background: #f5f3ff;
+		border-left: 4px solid #8b5cf6;
+		border-radius: 0.5rem;
+		padding: 0.8rem 1rem;
+		a {
+			color: #6d28d9;
+			font-weight: 600;
+		}
+	}
 	a {
 		color: theme('colors.blue.500');
 

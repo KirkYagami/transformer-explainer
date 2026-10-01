@@ -67,6 +67,9 @@
 </script>
 
 <GTM />
+{#if $page.route.id?.startsWith('/guide')}
+	<slot />
+{:else}
 <div
 	id="app"
 	style={`--min-screen-width:${minScreenWidth}px;--min-column-width:${minColumWidth}px;--predicted-color:${predictedColor};`}
@@ -87,6 +90,7 @@
 		<Article></Article>
 	</div>
 </div>
+{/if}
 
 <!-- <div class="alert">
 	<Alert />

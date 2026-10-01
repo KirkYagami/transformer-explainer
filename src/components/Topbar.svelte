@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
@@ -24,6 +25,14 @@
 		</div>
 	</div>
 	<div class="icons flex items-center gap-3">
+		<a
+			href="{base}/guide"
+			class="guide-link whitespace-nowrap rounded-full bg-purple-600 px-3 py-1 text-sm font-semibold text-white hover:bg-purple-700"
+			data-click="guide-btn"
+			title="New to all this? Read the Beginner's Guide"
+		>
+			📘 Guide
+		</a>
 		<!-- arxiv -->
 		<a
 			href="https://dl.acm.org/doi/pdf/10.1145/3772318.3791725"
